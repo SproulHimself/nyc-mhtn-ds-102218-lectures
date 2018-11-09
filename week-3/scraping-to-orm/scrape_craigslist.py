@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from listing import Listing
+import pdb
 
 class ListingBuilder:
     def run(self):
@@ -13,7 +14,8 @@ class ListingBuilder:
             listing = Listing(title = parser.title(), housing = parser.housing(), neighborhood = parser.neighborhood(), price = parser.price())
             listings.append(listing)
         return listings
-
+#start with sequential steps
+# create the HTML first
 class CraigsListScraper:
     def webpage_html(self, url = 'https://newyork.craigslist.org/search/brk/aap'):
         craigslist_request = requests.get(url)
